@@ -1,0 +1,31 @@
+.stSidebar {
+        background-color: #B2F2BB !important;
+    }
+
+    /* Fundo principal com gradiente off-white ao fundo */
+.stAppViewContainer {
+        background: linear-gradient(180deg, #FFFFFF 75%, #F4F4F0 100%) !important;
+    }
+
+    /* Torna o cabeçalho transparente para não cortar o fundo */
+.stHeader {
+        background-color: rgba(0, 0, 0, 0) !important;
+    }
+
+/* Cor do texto geral no fundo claro */
+.stApp, p, h1, h2, h3, h4, h5, h6, label {
+        color: #1F2937 !important;
+    }
+
+/* Força a cor branca e texto preto no selectbox da sidebar */
+[data-testid="stSidebar"] [data-testid="stSelectbox"] > div > div {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+    border: 1px solid #CCCCCC !important;
+}
+
+/* Cor das letras e opções dentro do campo */
+[data-testid="stSidebar"] [data-testid="stSelectbox"] * {
+    color: #000000 !important;
+    fill: #000000 !important;
+}
