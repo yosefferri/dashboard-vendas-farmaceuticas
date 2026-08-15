@@ -46,7 +46,7 @@
 [data-baseweb="select"] > div:first-child {
     color: transparent !important;
 }
-css
+
 input[aria-label="Filtrar por cidade"]::placeholder {
     color: transparent;
 }
