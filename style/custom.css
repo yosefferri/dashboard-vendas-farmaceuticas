@@ -29,3 +29,9 @@
     color: #000000 !important;
     fill: #000000 !important;
 }
+/* Regras que só valem para telas pequenas (celular) */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 26px;
+    }
+}
