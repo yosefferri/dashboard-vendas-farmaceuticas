@@ -62,6 +62,7 @@ with col1:
     cidades_disponiveis = df_filtrado["city"].unique().tolist()
     opcoes_filtro = ["Todas"] + cidades_disponiveis
 
+    st.caption("👆 Escolha uma ou mais cidades (ou 'Todas')")
     cidades_selecionadas = st.multiselect(
         "Filtrar por cidade",
         options=opcoes_filtro,
@@ -402,8 +403,5 @@ function traduzirTextos() {
 const observer = new MutationObserver(traduzirTextos);
 observer.observe(window.parent.document.body, { childList: true, subtree: true });
 traduzirTextos();
-console.log("SCRIPT RODOU!");
-alert("Teste: o script está executando");
-
 </script>
 """, height=0)
