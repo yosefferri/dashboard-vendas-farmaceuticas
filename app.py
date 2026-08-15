@@ -69,6 +69,8 @@ with col1:
     )
 
     fig_dia.update_layout(
+        margin=dict(l=10, r=10, t=30, b=10),
+        height=400,
         showlegend=True,
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
