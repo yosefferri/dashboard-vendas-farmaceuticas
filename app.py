@@ -67,7 +67,10 @@ with col1:
         options=opcoes_filtro,
         default=["Todas"]
     )
-    if "Todas" in cidades_selecionadas or len(cidades_selecionadas) == 0:
+    if len(cidades_selecionadas) == 0:
+        st.warning("Selecione pelo menos uma cidade para visualizar o gráfico.")
+        df_grafico_dia = df_filtrado
+    elif "Todas" in cidades_selecionadas:
         df_grafico_dia = df_filtrado
     else:
         df_grafico_dia = df_filtrado[df_filtrado["city"].isin(cidades_selecionadas)]
