@@ -35,3 +35,11 @@
         font-size: 26px;
     }
 }
+/* Traduz o placeholder "Choose options" */
+[data-baseweb="select"] input::placeholder {
+    color: transparent;
+}
+[data-baseweb="select"] input::placeholder::after {
+    content: "Selecione as cidades";
+    color: gray;
+}
