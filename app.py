@@ -139,17 +139,17 @@ with col_mapa:
     st.subheader("Faturamento por filial")
 
     # 1. Agrupamento e ordenação por maior faturamento
-    df_mapa = (
-        df_filtrado.groupby("city")["total"].sum().reset_index()
-    )
+    #    df_mapa = (
+    #   df_filtrado.groupby("city")["total"].sum().reset_index()
+    #  )
 
     # 2. Mapeamento de coordenadas (Araraquara, Bauru, Jaú, São Carlos)
-    coordenadas_sp = {
-        'Araraquara': {'lat': -21.7946, 'lon': -48.1766},
-        'Bauru': {'lat': -22.3145, 'lon': -49.0606},
-        'Jaú': {'lat': -22.2964, 'lon': -48.5586},
-        'São Carlos': {'lat': -21.9906, 'lon': -47.8897}
-    }
+    #  coordenadas_sp = {
+    #     'Araraquara': {'lat': -21.7946, 'lon': -48.1766},
+    #    'Bauru': {'lat': -22.3145, 'lon': -49.0606},
+    #    'Jaú': {'lat': -22.2964, 'lon': -48.5586},
+    #    'São Carlos': {'lat': -21.9906, 'lon': -47.8897}
+    #}
 
     faturamento_filial = df_filtrado.groupby("city")["total"].sum().reset_index()
     faturamento_filial = faturamento_filial.sort_values("total", ascending=True)
