@@ -269,6 +269,7 @@ col_g1, col_g2 = st.columns(2)
 
 # GRÁFICO 1: TOP 5 LABORATÓRIOS MAIS VENDIDOS
 with col_g1:
+    st.subheader("Laboratórios mais vendidos")
     top_labs = (
         df_filtrado.groupby("branch")["total"]
         .sum()
@@ -308,12 +309,13 @@ with col_g1:
 
 # GRÁFICO 2: TOP 10 PRODUTOS MAIS VENDIDOS
 with col_g2:
+    st.subheader("TOP 5 Produtos mais vendidos no período")
     top_produtos = (
         df_filtrado.groupby("product name")["quantity"]
         .sum()
         .reset_index()
         .sort_values(by="quantity", ascending=True)  # Ascending para o barra horizontal do plotly
-        .tail(10)
+        .tail(5)
     )
 
     fig_prods = px.bar(
