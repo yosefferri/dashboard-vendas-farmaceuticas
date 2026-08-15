@@ -379,7 +379,7 @@ st.markdown(
     <div style="text-align: center; color: black; font-size: 14px; padding-top: 10px;">
         © 2026 Ferri — Dashboard de vendas de uma rede de drogarias fícticia<br>
         Feito com Python, Streamlit e Plotly · Dados via csv<br>
-        Contato: joseferri225@gmail.com · <a href="https://github.com/yosefferri/ClimaTempo" style="color: gray;" target="_blank">GitHub</a>
+        Contato: joseferri225@gmail.com · <a href="https://github.com/yosefferri/dashboard-vendas-farmaceuticas" style="color: gray;" target="_blank">GitHub</a>
     </div>
     
     """,
