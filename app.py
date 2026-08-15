@@ -159,45 +159,33 @@ with col_mapa:
         axis=1
     )
 
-    # 3. Criação do gráfico de mapa
-    fig_mapa = px.scatter_mapbox(
-        df_mapa,
-        lat='lat',
-        lon='lon',
-        color='city_com_total',
-        size='total',
-        hover_name='city',  # Exibe o Nome da Cidade no topo do balão
-        hover_data={
-            'city_com_total': False,  # <--- REMOVE A LINHA REPETIDA DO BALÃO
-            'total': ':.2f',  # Mantém o valor total
-            'lat': False,  # Esconde a latitude
-            'lon': False  # Esconde a longitude
-        },
-        labels={'total': 'Total (R$)'},  # Deixa o rótulo do valor mais bonito
-        title='Faturamento por Cidade (SP)',
-        zoom=7,
-        center={'lat': -22.1, 'lon': -48.4},
-        mapbox_style='carto-positron'
+    faturamento_filial = df_filtrado.groupby("city")["total"].sum().reset_index()
+    faturamento_filial = faturamento_filial.sort_values("total",
+    ascending=True)  # ascending=True pra maior barra ficar em cima
+
+    fig_comparativo = px.bar(
+        faturamento_filial,
+        x="total",
+        y="city",
+        orientation="h",
+        color="city",
+        text="total",  # mostra o valor em cima da barra
+        labels={"total": "Faturamento (R$)", "city": "Cidade"},
+        color_discrete_map=mapa_cores_cidade
     )
 
-    # Ajustes visuais e fundo transparente no gráfico
-    fig_mapa.update_layout(
+    fig_comparativo.update_traces(texttemplate="R$ %{text:,.2f}", textposition="outside")
+    fig_comparativo.update_layout(
+        showlegend=False,
         margin=dict(l=10, r=10, t=30, b=10),
-        height=400,
-        showlegend=True,
-        paper_bgcolor='rgba(0,0,0,0)',
-        plot_bgcolor='rgba(0,0,0,0)',
-        font=dict(color='#000000'),
-        legend=dict(
-            font=dict(color='#000000', size=12),  # <--- Força o texto da legenda lateral a ficar preto
-            title=dict(font=dict(color='#000000', size=13))  # Cor do título da legenda
-        ),
-        legend_title_text='Cidades (Maior Faturamento)'
+        height=400
     )
+
+    st.plotly_chart(fig_comparativo, use_container_width=True, key="grafico_comparativo_filiais")
 
 
     # Renderização na coluna/local do primeiro gráfico de baixo
-    st.plotly_chart(fig_mapa, use_container_width=True, key="grafico_faturamento_filial", config={"displayModeBar": False})
+    st.plotly_chart(fig_comparativo, use_container_width=True, key="grafico_faturamento_filial", config={"displayModeBar": False})
 
 col4, col5 = st.columns(2)
 with col4:
@@ -236,7 +224,7 @@ with col4:
     st.plotly_chart(fig_pagamento, use_container_width=True, key="grafico_faturamento_pagamento", config={"displayModeBar": False})
 
 with col5:
-    st.subheader("Avaliação")
+    st.subheader("CSAT")
 
     # Calcula a média de avaliações (rating) por cidade
     avaliacao_por_cidade = df_filtrado.groupby("city")["rating"].mean().reset_index()
