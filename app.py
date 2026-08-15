@@ -376,6 +376,19 @@ st.markdown(
         Feito com Python, Streamlit e Plotly · Dados via csv<br>
         Contato: joseferri225@gmail.com · <a href="https://github.com/yosefferri/ClimaTempo" style="color: gray;" target="_blank">GitHub</a>
     </div>
+    <script>
+const observer = new MutationObserver(() => {
+    document.querySelectorAll('div').forEach(el => {
+        if (el.textContent === 'Choose options' && el.children.length === 0) {
+            el.textContent = 'Selecione as cidades';
+        }
+        if (el.textContent === 'Select all' && el.children.length === 0) {
+            el.textContent = 'Selecionar todas';
+        }
+    });
+});
+observer.observe(document.body, { childList: true, subtree: true });
+</script>
     """,
     unsafe_allow_html=True
 )
