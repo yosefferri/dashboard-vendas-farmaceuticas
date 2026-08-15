@@ -57,10 +57,22 @@ with col1:
     st.subheader("Faturamento por dia")
 
     # Agrupa o total de vendas por dia E por cidade
-    vendas_por_dia = df_filtrado.groupby(["date", "city"])["total"].sum().reset_index()
+    #vendas_por_dia = df_filtrado.groupby(["date", "city"])["total"].sum().reset_index()
+    cidades_disponiveis = df_filtrado["city"].unique().tolist()
+    opcoes_filtro = ["Todas"] + cidades_disponiveis
+
+    cidades_selecionadas = st.multiselect(
+        "Filtrar por cidade",
+        options=opcoes_filtro,
+        default=["Todas"]
+    )
+    if "Todas" in cidades_selecionadas or len(cidades_selecionadas) == 0:
+        df_grafico_dia = df_filtrado
+    else:
+        df_grafico_dia = df_filtrado[df_filtrado["city"].isin(cidades_selecionadas)]
 
     fig_dia = px.line(
-        vendas_por_dia,
+        cidades_selecionadas,
         x="date",
         y="total",
         color="city",
