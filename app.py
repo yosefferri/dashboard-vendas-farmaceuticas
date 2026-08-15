@@ -87,7 +87,7 @@ with col1:
         )
     )
 
-    st.plotly_chart(fig_dia, use_container_width=True, key="grafico_faturamento_dia")
+    st.plotly_chart(fig_dia, use_container_width=True, key="grafico_faturamento_dia", config={"displayModeBar": False})
 
 with col2:
     st.subheader("Faturamento por tipo de produto")
@@ -128,7 +128,7 @@ with col2:
         )
     )
 
-    st.plotly_chart(fig_produto, use_container_width=True, key="grafico_faturamento_produto")
+    st.plotly_chart(fig_produto, use_container_width=True, key="grafico_faturamento_produto", config={"displayModeBar": False})
 
     # ---------- LINHA 2: Faturamento por filial | Tipo de pagamento | Avaliação ----------
 col_mapa = st.columns(1)[0]
@@ -180,6 +180,8 @@ with col_mapa:
 
     # Ajustes visuais e fundo transparente no gráfico
     fig_mapa.update_layout(
+        margin=dict(l=10, r=10, t=30, b=10),
+        height=400,
         showlegend=True,
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
@@ -193,7 +195,7 @@ with col_mapa:
 
 
     # Renderização na coluna/local do primeiro gráfico de baixo
-    st.plotly_chart(fig_mapa, use_container_width=True, key="grafico_faturamento_filial")
+    st.plotly_chart(fig_mapa, use_container_width=True, key="grafico_faturamento_filial", config={"displayModeBar": False})
 
 col4, col5 = st.columns(2)
 with col4:
@@ -229,7 +231,7 @@ with col4:
             title_font=dict(color="#000000")  # Cor do título da legenda (Cidade)
         )
     )
-    st.plotly_chart(fig_pagamento, use_container_width=True, key="grafico_faturamento_pagamento")
+    st.plotly_chart(fig_pagamento, use_container_width=True, key="grafico_faturamento_pagamento", config={"displayModeBar": False})
 
 with col5:
     st.subheader("Avaliação")
@@ -268,7 +270,7 @@ with col5:
     nota_max = avaliacao_por_cidade["rating"].max()
     fig_avaliacao.update_yaxes(range=[nota_min - 0.3, nota_max + 0.3])
 
-    st.plotly_chart(fig_avaliacao, use_container_width=True, key="grafico_avaliacao")
+    st.plotly_chart(fig_avaliacao, use_container_width=True, key="grafico_avaliacao", config={"displayModeBar": False})
 
 
 col_g1, col_g2 = st.columns(2)
@@ -310,7 +312,7 @@ with col_g1:
             title_font=dict(color="#000000")  # Cor do título da legenda
         )
     )
-    st.plotly_chart(fig_labs, use_container_width=True, key="laboratorios")
+    st.plotly_chart(fig_labs, use_container_width=True, key="laboratorios", config={"displayModeBar": False})
 
 # GRÁFICO 2: TOP 10 PRODUTOS MAIS VENDIDOS
 with col_g2:
@@ -350,7 +352,7 @@ with col_g2:
             title_font=dict(color="#000000")  # Cor do título da legenda
         )
     )
-    st.plotly_chart(fig_prods, use_container_width=True)
+    st.plotly_chart(fig_prods, use_container_width=True, config={"displayModeBar": False})
 
 
 st.divider()
