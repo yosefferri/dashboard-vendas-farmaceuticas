@@ -43,3 +43,6 @@
     content: "Selecione as cidades";
     color: gray;
 }
+[data-baseweb="select"] > div:first-child {
+    color: transparent !important;
+}
