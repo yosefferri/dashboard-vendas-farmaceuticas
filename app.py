@@ -102,8 +102,11 @@ with col1:
             title_font=dict(color="#000000")  # Cor do título da legenda (Cidade)
         )
     )
+    valor_maximo = vendas_por_dia["total"].max()
+    fig_dia.update_yaxes(range=[0, valor_maximo * 1.05], tickprefix="R$ ", tickformat=",.0f")
 
     st.plotly_chart(fig_dia, use_container_width=True, key="grafico_faturamento_dia", config={"displayModeBar": False})
+
 
 with col2:
     st.subheader("Faturamento por tipo de produto")
