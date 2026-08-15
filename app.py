@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import streamlit.components.v1 as components
 
 
 st.set_page_config(layout="wide")   # <- adicione essa linha aqui
@@ -376,9 +377,16 @@ st.markdown(
         Feito com Python, Streamlit e Plotly · Dados via csv<br>
         Contato: joseferri225@gmail.com · <a href="https://github.com/yosefferri/ClimaTempo" style="color: gray;" target="_blank">GitHub</a>
     </div>
-    <script>
-const observer = new MutationObserver(() => {
-    document.querySelectorAll('div').forEach(el => {
+    
+    """,
+    unsafe_allow_html=True
+)
+
+components.html("""
+<script>
+function traduzirTextos() {
+    const parentDoc = window.parent.document;
+    parentDoc.querySelectorAll('div').forEach(el => {
         if (el.textContent === 'Choose options' && el.children.length === 0) {
             el.textContent = 'Selecione as cidades';
         }
@@ -386,9 +394,10 @@ const observer = new MutationObserver(() => {
             el.textContent = 'Selecionar todas';
         }
     });
-});
-observer.observe(document.body, { childList: true, subtree: true });
+}
+
+const observer = new MutationObserver(traduzirTextos);
+observer.observe(window.parent.document.body, { childList: true, subtree: true });
+traduzirTextos();
 </script>
-    """,
-    unsafe_allow_html=True
-)
+""", height=0)
