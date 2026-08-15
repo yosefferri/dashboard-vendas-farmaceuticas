@@ -402,5 +402,8 @@ function traduzirTextos() {
 const observer = new MutationObserver(traduzirTextos);
 observer.observe(window.parent.document.body, { childList: true, subtree: true });
 traduzirTextos();
+console.log("SCRIPT RODOU!");
+alert("Teste: o script está executando");
+
 </script>
 """, height=0)
