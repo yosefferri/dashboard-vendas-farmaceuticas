@@ -151,14 +151,6 @@ with col_mapa:
         'São Carlos': {'lat': -21.9906, 'lon': -47.8897}
     }
 
-    df_mapa['lat'] = df_mapa['city'].map(lambda c: coordenadas_sp.get(c, {}).get('lat'))
-    df_mapa['lon'] = df_mapa['city'].map(lambda c: coordenadas_sp.get(c, {}).get('lon'))
-
-    df_mapa['city_com_total'] = df_mapa.apply(
-        lambda row: f"{row['city']} - R$ {row['total']:,.2f}".replace(",", "X").replace(".", ",").replace("X", "."),
-        axis=1
-    )
-
     faturamento_filial = df_filtrado.groupby("city")["total"].sum().reset_index()
     faturamento_filial = faturamento_filial.sort_values("total", ascending=True)
 
@@ -180,7 +172,9 @@ with col_mapa:
         height=400,
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
-        font=dict(color='#000000')
+        font=dict(color='#000000'),
+        xaxis=dict(color='#000000'),
+        yaxis=dict(color='#000000')
     )
 
     st.plotly_chart(fig_comparativo, use_container_width=True, key="grafico_comparativo_filiais")
