@@ -391,7 +391,7 @@ function traduzirTextos() {
     const parentDoc = window.parent.document;
     parentDoc.querySelectorAll('div').forEach(el => {
         if (el.textContent === 'Choose options' && el.children.length === 0) {
-            el.textContent = '';
+            el.textContent = 'S';
         }
         if (el.textContent === 'Select all' && el.children.length === 0) {
             el.textContent = 'Selecionar todas';
