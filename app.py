@@ -173,8 +173,16 @@ with col_mapa:
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
         font=dict(color='#000000'),
-        xaxis=dict(color='#000000'),
-        yaxis=dict(color='#000000')
+        xaxis=dict(
+            color='#000000',
+            tickfont=dict(color='#000000'),
+            title_font=dict(color='#000000')
+        ),
+        yaxis=dict(
+            color='#000000',
+            tickfont=dict(color='#000000'),
+            title_font=dict(color='#000000')
+        )
     )
 
 
