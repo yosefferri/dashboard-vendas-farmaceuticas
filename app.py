@@ -71,8 +71,10 @@ with col1:
     else:
         df_grafico_dia = df_filtrado[df_filtrado["city"].isin(cidades_selecionadas)]
 
+    vendas_por_dia = df_grafico_dia.groupby(["date", "city"])["total"].sum().reset_index()
+
     fig_dia = px.line(
-        cidades_selecionadas,
+        vendas_por_dia,
         x="date",
         y="total",
         color="city",
