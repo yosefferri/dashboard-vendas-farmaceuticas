@@ -160,8 +160,7 @@ with col_mapa:
     )
 
     faturamento_filial = df_filtrado.groupby("city")["total"].sum().reset_index()
-    faturamento_filial = faturamento_filial.sort_values("total",
-    ascending=True)  # ascending=True pra maior barra ficar em cima
+    faturamento_filial = faturamento_filial.sort_values("total", ascending=True)
 
     fig_comparativo = px.bar(
         faturamento_filial,
@@ -169,16 +168,19 @@ with col_mapa:
         y="city",
         orientation="h",
         color="city",
-        text="total",  # mostra o valor em cima da barra
+        text="total",
         labels={"total": "Faturamento (R$)", "city": "Cidade"},
         color_discrete_map=mapa_cores_cidade
     )
 
-    fig_comparativo.update_traces(texttemplate="R$ %{text:,.2f}", textposition="outside")
+    fig_comparativo.update_traces(texttemplate="R$ %{text:,.2f}", textposition="inside")
     fig_comparativo.update_layout(
         showlegend=False,
         margin=dict(l=10, r=10, t=30, b=10),
-        height=400
+        height=400,
+        paper_bgcolor='rgba(0,0,0,0)',
+        plot_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#000000')
     )
 
     st.plotly_chart(fig_comparativo, use_container_width=True, key="grafico_comparativo_filiais")
