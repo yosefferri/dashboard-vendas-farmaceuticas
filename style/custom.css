@@ -15,11 +15,6 @@
 /* Cor do texto geral no fundo claro */
 .stApp, p, h1, h2, h3, h4, h5, h6, label {
         color: #1F2937 !important;
-        background:
-        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03) 0%, transparent 25%),
-        radial-gradient(circle at 70% 60%, rgba(255,255,255,0.04) 0%, transparent 30%),
-        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.03) 0%, transparent 20%),
-        linear-gradient(180deg, #c8f1b8 0%, #c8f1b8 50%, #ffffff 100%);
     }
 
 /* Força a cor branca e texto preto no selectbox da sidebar */
