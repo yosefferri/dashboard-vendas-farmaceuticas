@@ -291,6 +291,7 @@ with col_g1:
     fig_labs.update_layout(        showlegend=True,
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
+        coloraxis_showscale=False,
         font=dict(color="#000000"),  # Cor geral de todas as fontes
         xaxis=dict(
             title_font=dict(color="#000000"),  # Cor do título do eixo X
@@ -332,6 +333,7 @@ with col_g2:
     fig_prods.update_layout(        showlegend=True,
         paper_bgcolor='rgba(0,0,0,0)',
         plot_bgcolor='rgba(0,0,0,0)',
+        coloraxis_showscale=False,
         font=dict(color="#000000"),  # Cor geral de todas as fontes
         xaxis=dict(
             title_font=dict(color="#000000"),  # Cor do título do eixo X
