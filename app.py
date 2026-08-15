@@ -33,7 +33,7 @@ df["periodo"] = df["date"].dt.to_period("M")
 periodos_ordenados = sorted(df["periodo"].unique())
 
 # 4. Selectbox com exibição formatada (ex: "03/2025")
-periodo_selecionado = st.sidebar.selectbox(
+periodo_selecionado = st.selectbox(
     "Selecione o Mês/Ano",
     options=periodos_ordenados,
     format_func=lambda p: p.strftime("%m/%Y"),  # Exibe 03/2025 para o usuário
