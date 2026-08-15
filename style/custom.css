@@ -46,3 +46,18 @@
 [data-baseweb="select"] > div:first-child {
     color: transparent !important;
 }
+css
+input[aria-label="Filtrar por cidade"]::placeholder {
+    color: transparent;
+}
+
+input[aria-label="Filtrar por cidade"]:placeholder-shown {
+    position: relative;
+}
+
+input[aria-label="Filtrar por cidade"]:placeholder-shown::after {
+    content: "Selecione as cidades";
+    color: gray;
+    position: absolute;
+    left: 0;
+}
