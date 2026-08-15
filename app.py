@@ -177,8 +177,6 @@ with col_mapa:
         yaxis=dict(color='#000000')
     )
 
-    st.plotly_chart(fig_comparativo, use_container_width=True, key="grafico_comparativo_filiais")
-
 
     # Renderização na coluna/local do primeiro gráfico de baixo
     st.plotly_chart(fig_comparativo, use_container_width=True, key="grafico_faturamento_filial", config={"displayModeBar": False})
