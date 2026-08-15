@@ -59,7 +59,7 @@ with col1:
     # Agrupa o total de vendas por dia E por cidade
     vendas_por_dia = df_filtrado.groupby(["date", "city"])["total"].sum().reset_index()
 
-    fig_dia = px.bar(
+    fig_dia = px.line(
         vendas_por_dia,
         x="date",
         y="total",
